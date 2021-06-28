@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B956A1F8-1241-4CD7-9D3D-74C97BDE3438}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>O2DESNet</RootNamespace>
+    <AssemblyName>O2DESNet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=3.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.20.0\lib\net40\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Component.cs" />
+    <Compile Include="Components\FIFOServer.cs" />
+    <Compile Include="Components\Synchronizer.cs" />
+    <Compile Include="Distributions\Empirical.cs" />
+    <Compile Include="Distributions\Exponential.cs" />
+    <Compile Include="Distributions\Gamma.cs" />
+    <Compile Include="Distributions\Uniform.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="Components\Generator.cs" />
+    <Compile Include="Components\Load.cs" />
+    <Compile Include="Components\Queue.cs" />
+    <Compile Include="Components\RestoreServer.cs" />
+    <Compile Include="Components\Server.cs" />
+    <Compile Include="Traffic\ControlPoint.cs" />
+    <Compile Include="Traffic\Dijkstra.cs" />
+    <Compile Include="Traffic\Floyd.cs" />
+    <Compile Include="Traffic\Path.cs" />
+    <Compile Include="Traffic\PathMover.cs" />
+    <Compile Include="Traffic\Vehicle.cs" />
+    <Compile Include="Simulator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HourCounter.cs" />
+    <Compile Include="Scenario.cs" />
+    <Compile Include="State.cs" />
+    <Compile Include="SVGRenderer\Animate.cs" />
+    <Compile Include="SVGRenderer\AnimateMotion.cs" />
+    <Compile Include="SVGRenderer\Clock.cs" />
+    <Compile Include="SVGRenderer\Definition.cs" />
+    <Compile Include="SVGRenderer\Group.cs" />
+    <Compile Include="SVGRenderer\Line.cs" />
+    <Compile Include="SVGRenderer\Path.cs" />
+    <Compile Include="SVGRenderer\PathMarker.cs" />
+    <Compile Include="SVGRenderer\Rectangular.cs" />
+    <Compile Include="SVGRenderer\Set.cs" />
+    <Compile Include="SVGRenderer\Style.cs" />
+    <Compile Include="SVGRenderer\StyledXElement.cs" />
+    <Compile Include="SVGRenderer\SVG.cs" />
+    <Compile Include="SVGRenderer\Text.cs" />
+    <Compile Include="SVGRenderer\Use.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="O2DES.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
